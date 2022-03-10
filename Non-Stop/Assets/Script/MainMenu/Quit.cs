@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Quit : MonoBehaviour
 {
+    /// <summary
+    /// To load the next scene
+    /// </summary
     public void NextLevel()
     {
         SceneManager.LoadScene(1);
