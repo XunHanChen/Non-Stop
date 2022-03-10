@@ -12,4 +12,8 @@ public class Quit : MonoBehaviour
         Debug.Log("Quit");
         Application.Quit();
     }
+    
+    public void PauseGame(){
+        Time.timescale=0;
+    }
 }
