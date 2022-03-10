@@ -20,6 +20,6 @@ public class Quit : MonoBehaviour
     }
     
     public void PauseGame(){
-        Time.timescale=0;
+        Time.timeScale=0;
     }
 }
