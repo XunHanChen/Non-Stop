@@ -24,6 +24,5 @@ public class Quit : MonoBehaviour
     
     public void PauseGame(){
         Time.timeScale=0;
-        //tEST
     }
 }
