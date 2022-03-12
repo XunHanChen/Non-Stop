@@ -15,11 +15,14 @@ public class MenuScript : MonoBehaviour
 
     public Button options;
     public Button backOptionsButton;
+    public Button howToPlay;
+    public Button backHowButton;
 
     public GameObject StartPanel;
     public GameObject MenuButtonPanel;
     public GameObject PlayPanel;
     public GameObject OptionsPanel;
+    public GameObject HowPanel;
 
     void Update()
     {
@@ -60,6 +63,17 @@ public class MenuScript : MonoBehaviour
         MenuButtonPanel.SetActive(true);
     }
 
+    public void HowMenu()
+    {
+        OptionsPanel.SetActive(false);
+        HowPanel.SetActive(true);
+    }
+    public void BackHow()
+    {
+        HowPanel.SetActive(false);
+        OptionsPanel.SetActive(true);
+    }
+
     public void level1()
     {
         SceneManager.LoadScene("Level1");
@@ -73,5 +87,20 @@ public class MenuScript : MonoBehaviour
     public void level3()
     {
         SceneManager.LoadScene("Level3");
+    }
+
+    public void backToMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
     }
 }

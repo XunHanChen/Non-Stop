@@ -21,11 +21,13 @@ public class moveChar : MonoBehaviour
     public float downAccel = 0.75f;
     private int jumpInput = 0;
     private bool onGround = false;
+    public Vector3 _velocity;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        _velocity = Vector3.zero;
     }
 
     void FixedUpdate()
@@ -115,16 +117,16 @@ public class moveChar : MonoBehaviour
     {
         if(jumpInput == 1 && onGround)
         {
-            GM.vertVel = 10;
+            _velocity.y = jumpVel;
             animator.SetTrigger("Jump");
         }
         else if(jumpInput == 0 && onGround)
         {
-            GM.vertVel = 0;
+            _velocity.y = 0;
         }
         else
         {
-            GM.vertVel -= downAccel;
+            _velocity.y -=  downAccel;
         }
 
         jumpInput = 0;
@@ -135,7 +137,8 @@ public class moveChar : MonoBehaviour
         Ray ray = new Ray(transform.position + Vector3.up * 0.1f, Vector3.down);
         RaycastHit[] hits = Physics.RaycastAll(ray, 0.5f);
         onGround = true;
-        //GetComponent<Rigidbody>().velocity;
+
+        GetComponent<Rigidbody>().useGravity = true;
 
         foreach(var hit in hits)
         {
@@ -145,8 +148,11 @@ public class moveChar : MonoBehaviour
                 {
                     GetComponent<Rigidbody>().position = Vector3.MoveTowards(GetComponent<Rigidbody>().position,
                     new Vector3(hit.point.x, hit.point.y + 0.1f, hit.point.z), Time.deltaTime * 10);
+
+                    Debug.Log("Clicked on ");
                 }
 
+                GetComponent<Rigidbody>().useGravity = false;
                 onGround = true;
                 break;
             }
