@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class CharControl : MonoBehaviour
@@ -13,7 +14,9 @@ public class CharControl : MonoBehaviour
     public int laneNum = 0;
     public KeyCode moveL;
     public KeyCode moveR;
-    public static float horizVel = 0;
+    public static int horizVel = 0;
+    public Button Left;
+    public Button Right;
 
     public float speed = 5;
     public float slideSpeed = 5;
@@ -22,6 +25,7 @@ public class CharControl : MonoBehaviour
     float horizontalInput;
     //[SerializeField] float horizontalMultiplier = 2;
     public int jumpInput = 0;
+    int fingerCount = 0;
 
     public float speedIncreasePerPoint = 0.1f;
 
@@ -69,6 +73,20 @@ public class CharControl : MonoBehaviour
                 jumpInput = 1;
                 Jump();
             }
+        }
+
+        //Jump
+        foreach (Touch touch in Input.touches)
+        {
+            if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled)
+            {
+                fingerCount++;
+            }
+        }
+        if (fingerCount > 0)
+        {
+            jumpInput = 1;
+            Jump();
         }
     }
 
@@ -118,7 +136,29 @@ public class CharControl : MonoBehaviour
 
     }
 
-    void Jump()
+    public void slideLeft()
+    {
+        if ((laneNum > -1) && controlLocked == "n")
+        {
+            horizVel = -1;
+            StartCoroutine(stopSlide());
+            laneNum -= 1;
+            controlLocked = "y";
+        }
+    }
+
+    public void slideRight()
+    {
+        if ((laneNum < 1) && controlLocked == "n")
+        {
+            horizVel = 1;
+            StartCoroutine(stopSlide());
+            laneNum += 1;
+            controlLocked = "y";
+        }
+    }
+
+    public void Jump()
     {
         animator.SetTrigger("Jump");
 
