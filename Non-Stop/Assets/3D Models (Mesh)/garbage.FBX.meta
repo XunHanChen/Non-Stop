@@ -3,7 +3,17 @@ guid: a70333e243084634b81d21ffc568f5da
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: garbage
+    second: {fileID: 2100000, guid: 7d4714dc7c436c945b864808ebab1c93, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: garbage belt
+    second: {fileID: 2100000, guid: f605e84e0f7196947872afee4437c5b8, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
