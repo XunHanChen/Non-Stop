@@ -22569,7 +22569,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1327110452}
+      - m_Target: {fileID: 0}
         m_MethodName: slideLeft
         m_Mode: 1
         m_Arguments:
@@ -38141,7 +38141,7 @@ MonoBehaviour:
   Left: {fileID: 750564255}
   Right: {fileID: 1769198357}
   speed: 10
-  slideSpeed: 4
+  slideSpeed: 5
   rb: {fileID: 1327110455}
   jumpInput: 0
   speedIncreasePerPoint: 0.5
@@ -51756,7 +51756,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1327110452}
+      - m_Target: {fileID: 0}
         m_MethodName: slideRight
         m_Mode: 1
         m_Arguments:
