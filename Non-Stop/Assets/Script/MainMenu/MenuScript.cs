@@ -77,6 +77,9 @@ public class MenuScript : MonoBehaviour
     public void level1()
     {
         SceneManager.LoadScene("Level1");
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //Application.LoadLevel(Application.loadedLevel);
+        //Debug.Log("Level Reset");
     }
 
     public void level2()

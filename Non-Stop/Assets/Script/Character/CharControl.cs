@@ -129,10 +129,10 @@ public class CharControl : MonoBehaviour
             SceneManager.LoadScene("Win1");
         }
 
-        //if (other.gameObject.name == "goal2")
-        //{
-        //    SceneManager.LoadScene("Level3");
-        //}
+        if (other.gameObject.name == "goal2")
+        {
+            SceneManager.LoadScene("Win2");
+        }
 
     }
 
