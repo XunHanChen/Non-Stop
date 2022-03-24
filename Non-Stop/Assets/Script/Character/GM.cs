@@ -26,14 +26,13 @@ public class GM : MonoBehaviour
         if(lvlCompStatus == "Fail")
         {
             waittoload += Time.deltaTime;
+            //lvlCompStatus = "NotFail";
         }
 
         if (waittoload > 2)
         {
             SceneManager.LoadScene("Lose1");
             lvlCompStatus = "NotFail";
-            CharControl.laneNum = 0;
-            CharControl.horizVel = 0;
         }
     }
 }

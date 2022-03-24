@@ -11,7 +11,7 @@ public class CharControl : MonoBehaviour
     private Animator animator;
 
     public string controlLocked = "n";
-    public static int laneNum = 0;
+    public int laneNum = 0;
     public KeyCode moveL;
     public KeyCode moveR;
     public static int horizVel = 0;
