@@ -96,6 +96,7 @@ public class MenuScript : MonoBehaviour
     {
         SceneManager.LoadScene("Main Menu");
         GM.coinTotal = 0;
+        Time.timeScale = 1;
     }
 
     public void PauseGame()

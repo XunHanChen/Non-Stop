@@ -11,15 +11,15 @@ public class CharControl : MonoBehaviour
     private Animator animator;
 
     public string controlLocked = "n";
-    public int laneNum = 0;
+    public static int laneNum = 0;
     public KeyCode moveL;
     public KeyCode moveR;
     public static int horizVel = 0;
     public Button Left;
     public Button Right;
 
-    public float speed = 5;
-    public float slideSpeed = 5;
+    public int speed = 10;
+    public int slideSpeed = 5;
     [SerializeField] Rigidbody rb;
 
     float horizontalInput;
@@ -31,7 +31,9 @@ public class CharControl : MonoBehaviour
 
     [SerializeField] float jumpForce = 400f;
     //[SerializeField] LayerMask groundMask;
-    
+
+    public GameObject Laser;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -47,7 +49,7 @@ public class CharControl : MonoBehaviour
 
     void Update()
     {
-      
+
         //horizontalInput = Input.GetAxis("Horizontal");
 
         if ((Input.GetKeyDown(moveL)) && (laneNum > -1) && controlLocked == "n")
@@ -65,6 +67,31 @@ public class CharControl : MonoBehaviour
             laneNum += 1;
             controlLocked = "y";
         }
+
+        //if ((Input.GetKeyDown(KeyCode.LeftArrow)))
+        //{
+        //    if(horizVel == 0)
+        //    {
+        //        horizVel = -2;
+        //    }
+        //    else
+        //    if (horizVel == -2)
+        //    {
+        //        horizVel = -0;
+        //    }
+        //}
+        //else if ((Input.GetKeyDown(KeyCode.RightArrow)))
+        //{
+        //    if (horizVel == 0)
+        //    {
+        //        horizVel = 2;
+        //    }
+        //    else
+        //    if (horizVel == 2)
+        //    {
+        //        horizVel = -0;
+        //    }
+        //}
 
         if (jumpInput == 0)
         {
@@ -124,6 +151,18 @@ public class CharControl : MonoBehaviour
             GM.coinTotal += 1;
         }
 
+        if (other.gameObject.tag == "LaserOpen")
+        {
+            //Destroy(other.gameObject);
+            Laser.SetActive(true);
+        }
+
+        if (other.gameObject.tag == "LaserClose")
+        {
+            //Destroy(other.gameObject);
+            Laser.SetActive(false);
+        }
+
         if (other.gameObject.name == "goal1")
         {
             SceneManager.LoadScene("Win1");
@@ -134,6 +173,10 @@ public class CharControl : MonoBehaviour
             SceneManager.LoadScene("Win2");
         }
 
+        if (other.gameObject.name == "goal3")
+        {
+            SceneManager.LoadScene("Win3");
+        }
     }
 
     public void slideLeft()
@@ -172,7 +215,7 @@ public class CharControl : MonoBehaviour
 
     IEnumerator stopSlide()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
         horizVel = 0;
         controlLocked = "n";
     }

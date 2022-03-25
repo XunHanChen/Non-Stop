@@ -33,6 +33,8 @@ public class GM : MonoBehaviour
         {
             SceneManager.LoadScene("Lose1");
             lvlCompStatus = "NotFail";
+            CharControl.horizVel = 0;
+            CharControl.laneNum = 0;
         }
     }
 }
