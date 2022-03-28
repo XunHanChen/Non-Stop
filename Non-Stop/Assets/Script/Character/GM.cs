@@ -33,11 +33,16 @@ public class GM : MonoBehaviour
             SceneManager.LoadScene("Lose1");
 <<<<<<< Updated upstream
             lvlCompStatus = "NotFail";
+<<<<<<< HEAD
 =======
             //lvlCompStatus = "NotFail";
             CharControl.horizVel = 0;
             CharControl.laneNum = 0;
 >>>>>>> Stashed changes
+=======
+            CharControl.horizVel = 0;
+            CharControl.laneNum = 0;
+>>>>>>> parent of bf00d0b (Revert "Level 3 map design")
         }
     }
 }

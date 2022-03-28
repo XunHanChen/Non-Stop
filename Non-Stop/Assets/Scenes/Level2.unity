@@ -4629,7 +4629,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &457431873
 Transform:
   m_ObjectHideFlags: 0
@@ -7498,7 +7498,6 @@ MonoBehaviour:
   character: {fileID: 835163833}
   boomObj: {fileID: 6089853330857603116, guid: 20abe012515c88c429b83cc7fe7141d8, type: 3}
   controlLocked: n
-  laneNum: 0
   moveL: 276
   moveR: 275
   Left: {fileID: 1276691807}
@@ -7508,6 +7507,7 @@ MonoBehaviour:
   rb: {fileID: 835163835}
   speedIncreasePerPoint: 0.5
   jumpForce: 1000
+  Laser: {fileID: 0}
 --- !u!95 &835163838
 Animator:
   serializedVersion: 3
