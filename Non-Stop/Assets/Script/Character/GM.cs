@@ -23,16 +23,21 @@ public class GM : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(lvlCompStatus == "Fail")
+        if (lvlCompStatus == "Fail")
         {
             waittoload += Time.deltaTime;
-            //lvlCompStatus = "NotFail";
         }
 
         if (waittoload > 2)
         {
             SceneManager.LoadScene("Lose1");
+<<<<<<< Updated upstream
             lvlCompStatus = "NotFail";
+=======
+            //lvlCompStatus = "NotFail";
+            CharControl.horizVel = 0;
+            CharControl.laneNum = 0;
+>>>>>>> Stashed changes
         }
     }
 }

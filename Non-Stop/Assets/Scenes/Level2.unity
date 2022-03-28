@@ -7506,7 +7506,6 @@ MonoBehaviour:
   speed: 10
   slideSpeed: 5
   rb: {fileID: 835163835}
-  jumpInput: 0
   speedIncreasePerPoint: 0.5
   jumpForce: 1000
 --- !u!95 &835163838

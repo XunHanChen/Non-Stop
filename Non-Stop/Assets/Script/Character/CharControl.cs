@@ -24,14 +24,25 @@ public class CharControl : MonoBehaviour
 
     float horizontalInput;
     //[SerializeField] float horizontalMultiplier = 2;
-    public int jumpInput = 0;
+    public static int jumpInput = 0;
     int fingerCount = 0;
 
     public float speedIncreasePerPoint = 0.1f;
 
     [SerializeField] float jumpForce = 400f;
     //[SerializeField] LayerMask groundMask;
+<<<<<<< Updated upstream
     
+=======
+
+    public GameObject Laser;
+
+    //public AudioSource SoundSource;
+    //public Slider SoundSlider;
+    //private float SoundVolume = 1f;
+    //public AudioSource coins, jump, die;
+
+>>>>>>> Stashed changes
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -47,7 +58,10 @@ public class CharControl : MonoBehaviour
 
     void Update()
     {
+<<<<<<< Updated upstream
       
+=======
+>>>>>>> Stashed changes
         //horizontalInput = Input.GetAxis("Horizontal");
 
         if ((Input.GetKeyDown(moveL)) && (laneNum > -1) && controlLocked == "n")
@@ -159,7 +173,7 @@ public class CharControl : MonoBehaviour
     }
 
     public void Jump()
-    {
+    {  
         animator.SetTrigger("Jump");
 
         // Check ground
@@ -168,6 +182,7 @@ public class CharControl : MonoBehaviour
 
         //If jump
         rb.AddForce(Vector3.up * jumpForce);
+        
     }
 
     IEnumerator stopSlide()
