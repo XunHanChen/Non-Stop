@@ -13,36 +13,35 @@ public class GM : MonoBehaviour
     public static float zVelAdj = 1;
 
     public static string lvlCompStatus = "";
+    public AudioSource die;
+    public CharControl charScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+      
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(charScript = null)
+        {
+            die.Play();
+        }
+
         if (lvlCompStatus == "Fail")
         {
             waittoload += Time.deltaTime;
+            //lvlCompStatus = "NotFail";
         }
 
         if (waittoload > 2)
         {
             SceneManager.LoadScene("Lose1");
-<<<<<<< Updated upstream
             lvlCompStatus = "NotFail";
-<<<<<<< HEAD
-=======
-            //lvlCompStatus = "NotFail";
             CharControl.horizVel = 0;
             CharControl.laneNum = 0;
->>>>>>> Stashed changes
-=======
-            CharControl.horizVel = 0;
-            CharControl.laneNum = 0;
->>>>>>> parent of bf00d0b (Revert "Level 3 map design")
         }
     }
 }

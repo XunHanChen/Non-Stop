@@ -31,24 +31,9 @@ public class CharControl : MonoBehaviour
 
     [SerializeField] float jumpForce = 400f;
     //[SerializeField] LayerMask groundMask;
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    
-=======
 
     public GameObject Laser;
 
-    //public AudioSource SoundSource;
-    //public Slider SoundSlider;
-    //private float SoundVolume = 1f;
-    //public AudioSource coins, jump, die;
-
->>>>>>> Stashed changes
-=======
-
-    public GameObject Laser;
-
->>>>>>> parent of bf00d0b (Revert "Level 3 map design")
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -64,14 +49,6 @@ public class CharControl : MonoBehaviour
 
     void Update()
     {
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-      
-=======
->>>>>>> Stashed changes
-=======
-
->>>>>>> parent of bf00d0b (Revert "Level 3 map design")
         //horizontalInput = Input.GetAxis("Horizontal");
 
         if ((Input.GetKeyDown(moveL)) && (laneNum > -1) && controlLocked == "n")
@@ -119,6 +96,8 @@ public class CharControl : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
+                //jump.Play();
+                //SetVolume.JumpCheck = "JumpUp";
                 jumpInput = 1;
                 Jump();
             }
@@ -143,7 +122,7 @@ public class CharControl : MonoBehaviour
     {
         if (other.gameObject.tag == "Obstacle")
         {
-            Destroy(character);
+            character.SetActive(false);
             GM.zVelAdj = 0;
             Instantiate(boomObj, transform.position, boomObj.rotation);
             GM.lvlCompStatus = "Fail";
@@ -169,6 +148,7 @@ public class CharControl : MonoBehaviour
 
         if (other.gameObject.tag == "Coin")
         {
+            //coins.Play();
             Destroy(other.gameObject);
             GM.coinTotal += 1;
         }
@@ -224,7 +204,7 @@ public class CharControl : MonoBehaviour
     }
 
     public void Jump()
-    {  
+    {
         animator.SetTrigger("Jump");
 
         // Check ground
@@ -233,7 +213,7 @@ public class CharControl : MonoBehaviour
 
         //If jump
         rb.AddForce(Vector3.up * jumpForce);
-        
+
     }
 
     IEnumerator stopSlide()
@@ -242,6 +222,9 @@ public class CharControl : MonoBehaviour
         horizVel = 0;
         controlLocked = "n";
     }
-}
 
-   
+    public void SoundUpdater(float volume)
+    {
+        //SoundVolume = volume;
+    }
+}
