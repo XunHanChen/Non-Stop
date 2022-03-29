@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class CharControl : MonoBehaviour
 {
-    public GameObject character;
+    public static GameObject character;
     public Transform boomObj;
     private Animator animator;
 
@@ -168,16 +168,22 @@ public class CharControl : MonoBehaviour
         if (other.gameObject.name == "goal1")
         {
             SceneManager.LoadScene("Win1");
+            horizVel = 0;
+            laneNum = 0;
         }
 
         if (other.gameObject.name == "goal2")
         {
             SceneManager.LoadScene("Win2");
+            horizVel = 0;
+            laneNum = 0;
         }
 
         if (other.gameObject.name == "goal3")
         {
             SceneManager.LoadScene("Win3");
+            horizVel = 0;
+            laneNum = 0;
         }
     }
 

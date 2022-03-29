@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GM : MonoBehaviour
 {
@@ -13,21 +14,35 @@ public class GM : MonoBehaviour
     public static float zVelAdj = 1;
 
     public static string lvlCompStatus = "";
-    public AudioSource die;
-    public CharControl charScript;
+    public AudioSource dieSource;
+    public AudioClip dieClip;
+    //private float Volume = 0.1f;
+
+    public Slider dieSlider;
+    private float dieVolume;
+
+    public GameObject Player;
 
     // Start is called before the first frame update
     void Start()
     {
-      
+        CharControl.character = Player;
+
+        dieVolume = PlayerPrefs.GetFloat("SoundVol");
+        dieSource.volume = dieVolume;
+        dieSlider.value = dieVolume;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(charScript = null)
+        dieSource.volume = dieVolume;
+        PlayerPrefs.SetFloat("SoundVol", dieVolume);
+
+        if (!Player.active)
         {
-            die.Play();
+            Debug.Log("Die");
+            dieSource.PlayOneShot(dieClip, dieVolume);
         }
 
         if (lvlCompStatus == "Fail")
@@ -43,5 +58,10 @@ public class GM : MonoBehaviour
             CharControl.horizVel = 0;
             CharControl.laneNum = 0;
         }
+    }
+
+    public void DieSoundUpdater(float vol)
+    {
+        dieVolume = vol;
     }
 }

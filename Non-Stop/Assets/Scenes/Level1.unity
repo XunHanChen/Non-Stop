@@ -11302,7 +11302,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 557776702}
+  m_Father: {fileID: 2065362340}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &430169170
@@ -15057,7 +15057,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 423885813}
   - {fileID: 1912723346}
   - {fileID: 1925388023}
   m_Father: {fileID: 1327110450}
@@ -19599,7 +19598,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 3.1922e-41, z: 0, w: 9.403955e-38}
+  m_BoundingSphereOverride: {x: 0, y: 3.8496e-41, z: 0, w: -0.0000000023283064}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -27232,8 +27231,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waittoload: 0
-  die: {fileID: 1882805567}
-  charScript: {fileID: 1327110452}
+  dieSource: {fileID: 1882805567}
+  dieClip: {fileID: 8300000, guid: d267ae45c0955d2479e5735eb43b10b1, type: 3}
+  dieSlider: {fileID: 1724631640}
+  Player: {fileID: 1327110449}
 --- !u!1 &963438405
 GameObject:
   m_ObjectHideFlags: 0
@@ -36089,7 +36090,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd3cbfe2ff941e64fabc5aad828d2190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 1327110449}
   boomObj: {fileID: 6089853330857603116, guid: 20abe012515c88c429b83cc7fe7141d8, type: 3}
   controlLocked: n
   moveL: 276
@@ -47863,6 +47863,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 963194230}
+        m_MethodName: DieSoundUpdater
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1730988095
 GameObject:
   m_ObjectHideFlags: 0
@@ -51974,8 +51985,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_Father: {fileID: 2065362340}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1882805567
 AudioSource:
@@ -53119,7 +53130,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 557776702}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1916928602
 GameObject:
@@ -53452,7 +53463,7 @@ Transform:
   - {fileID: 73325320}
   - {fileID: 613572908}
   m_Father: {fileID: 557776702}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1931607935
 PrefabInstance:
@@ -58344,6 +58355,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2062180079}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2065362339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2065362340}
+  m_Layer: 0
+  m_Name: Bgm/dieSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2065362340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065362339}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 423885813}
+  - {fileID: 1882805566}
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2073674424
 PrefabInstance:
   m_ObjectHideFlags: 0
