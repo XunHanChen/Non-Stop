@@ -6,32 +6,34 @@ using UnityEngine.SceneManagement;
 
 public class CharControl : MonoBehaviour
 {
-    public GameObject character;
+    public static GameObject character;
     public Transform boomObj;
     private Animator animator;
 
     public string controlLocked = "n";
-    public int laneNum = 0;
+    public static int laneNum = 0;
     public KeyCode moveL;
     public KeyCode moveR;
     public static int horizVel = 0;
     public Button Left;
     public Button Right;
 
-    public float speed = 5;
-    public float slideSpeed = 5;
+    public int speed = 10;
+    public int slideSpeed = 5;
     [SerializeField] Rigidbody rb;
 
     float horizontalInput;
     //[SerializeField] float horizontalMultiplier = 2;
-    public int jumpInput = 0;
+    public static int jumpInput = 0;
     int fingerCount = 0;
 
     public float speedIncreasePerPoint = 0.1f;
 
     [SerializeField] float jumpForce = 400f;
     //[SerializeField] LayerMask groundMask;
-    
+
+    public GameObject Laser;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -47,7 +49,6 @@ public class CharControl : MonoBehaviour
 
     void Update()
     {
-      
         //horizontalInput = Input.GetAxis("Horizontal");
 
         if ((Input.GetKeyDown(moveL)) && (laneNum > -1) && controlLocked == "n")
@@ -66,10 +67,37 @@ public class CharControl : MonoBehaviour
             controlLocked = "y";
         }
 
+        //if ((Input.GetKeyDown(KeyCode.LeftArrow)))
+        //{
+        //    if(horizVel == 0)
+        //    {
+        //        horizVel = -2;
+        //    }
+        //    else
+        //    if (horizVel == -2)
+        //    {
+        //        horizVel = -0;
+        //    }
+        //}
+        //else if ((Input.GetKeyDown(KeyCode.RightArrow)))
+        //{
+        //    if (horizVel == 0)
+        //    {
+        //        horizVel = 2;
+        //    }
+        //    else
+        //    if (horizVel == 2)
+        //    {
+        //        horizVel = -0;
+        //    }
+        //}
+
         if (jumpInput == 0)
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
+                //jump.Play();
+                //SetVolume.JumpCheck = "JumpUp";
                 jumpInput = 1;
                 Jump();
             }
@@ -94,7 +122,7 @@ public class CharControl : MonoBehaviour
     {
         if (other.gameObject.tag == "Obstacle")
         {
-            Destroy(character);
+            character.SetActive(false);
             GM.zVelAdj = 0;
             Instantiate(boomObj, transform.position, boomObj.rotation);
             GM.lvlCompStatus = "Fail";
@@ -120,20 +148,43 @@ public class CharControl : MonoBehaviour
 
         if (other.gameObject.tag == "Coin")
         {
+            //coins.Play();
             Destroy(other.gameObject);
             GM.coinTotal += 1;
+        }
+
+        if (other.gameObject.tag == "LaserOpen")
+        {
+            //Destroy(other.gameObject);
+            Laser.SetActive(true);
+        }
+
+        if (other.gameObject.tag == "LaserClose")
+        {
+            //Destroy(other.gameObject);
+            Laser.SetActive(false);
         }
 
         if (other.gameObject.name == "goal1")
         {
             SceneManager.LoadScene("Win1");
+            horizVel = 0;
+            laneNum = 0;
         }
 
-        //if (other.gameObject.name == "goal2")
-        //{
-        //    SceneManager.LoadScene("Level3");
-        //}
+        if (other.gameObject.name == "goal2")
+        {
+            SceneManager.LoadScene("Win2");
+            horizVel = 0;
+            laneNum = 0;
+        }
 
+        if (other.gameObject.name == "goal3")
+        {
+            SceneManager.LoadScene("Win3");
+            horizVel = 0;
+            laneNum = 0;
+        }
     }
 
     public void slideLeft()
@@ -168,14 +219,18 @@ public class CharControl : MonoBehaviour
 
         //If jump
         rb.AddForce(Vector3.up * jumpForce);
+
     }
 
     IEnumerator stopSlide()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
         horizVel = 0;
         controlLocked = "n";
     }
-}
 
-   
+    public void SoundUpdater(float volume)
+    {
+        //SoundVolume = volume;
+    }
+}

@@ -7,6 +7,8 @@ using UnityEngine.Audio;
 
 public class MenuScript : MonoBehaviour
 {
+    //public AudioMixer mixer;
+   
     public Button play;
     public Button Level1;
     public Button Level2;
@@ -24,8 +26,19 @@ public class MenuScript : MonoBehaviour
     public GameObject OptionsPanel;
     public GameObject HowPanel;
 
+    void Start()
+    {
+        //Bgm.Play();
+        //BgmVolume = PlayerPrefs.GetFloat("BgmVol");
+        //Bgm.volume = BgmVolume;
+        //BgmSlider.value = BgmVolume;
+    }
+
     void Update()
     {
+        //Bgm.volume = BgmVolume;
+        //PlayerPrefs.SetFloat("BgmVol", BgmVolume);
+
         int fingerCount = 0;
         foreach (Touch touch in Input.touches)
         {
@@ -77,6 +90,9 @@ public class MenuScript : MonoBehaviour
     public void level1()
     {
         SceneManager.LoadScene("Level1");
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //Application.LoadLevel(Application.loadedLevel);
+        //Debug.Log("Level Reset");
     }
 
     public void level2()
@@ -92,6 +108,8 @@ public class MenuScript : MonoBehaviour
     public void backToMenu()
     {
         SceneManager.LoadScene("Main Menu");
+        GM.coinTotal = 0;
+        Time.timeScale = 1;
     }
 
     public void PauseGame()
@@ -103,4 +121,15 @@ public class MenuScript : MonoBehaviour
     {
         Time.timeScale = 1;
     }
+
+    public void BgmVolUpdater (float volume)
+    {
+        //BgmVolume = volume;
+    }
+
+    //public void SetLevel(float volume)
+    //{
+    //    mixer.SetFloat("BgmVol", Mathf.Log10(sliderValue) * 20);
+
+    //}
 }
