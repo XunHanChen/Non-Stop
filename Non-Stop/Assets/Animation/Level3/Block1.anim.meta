@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Non-Stop/Assets/Animation/Level3/Block1.anim.meta
 guid: fb1413562c2a5ec4baa10741bf05d263
+=======
+guid: beb13c8b63a45d44d9166dc062587b81
+>>>>>>> 1cc86bc8e1cf5be1780c05b9f090836ea1282530:Non-Stop/Assets/Assets/3D Models (Mesh)/garbage belt.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0
