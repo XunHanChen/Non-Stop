@@ -60492,6 +60492,7 @@ GameObject:
   - component: {fileID: 2044020439}
   - component: {fileID: 2044020441}
   - component: {fileID: 2044020440}
+  - component: {fileID: 2044020442}
   m_Layer: 0
   m_Name: Columm Wall (1)
   m_TagString: Obstacle
@@ -60560,6 +60561,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2044020438}
   m_Mesh: {fileID: 4442130670313257827, guid: 0547d36b6742ea54a98678a0935f2287, type: 3}
+--- !u!65 &2044020442
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044020438}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 4, z: 1}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &2045549832
 GameObject:
   m_ObjectHideFlags: 0
