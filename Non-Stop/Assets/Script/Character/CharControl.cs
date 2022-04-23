@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine.SceneManagement;
 
 public class CharControl : MonoBehaviour
@@ -67,31 +68,7 @@ public class CharControl : MonoBehaviour
             controlLocked = "y";
         }
 
-        //if ((Input.GetKeyDown(KeyCode.LeftArrow)))
-        //{
-        //    if(horizVel == 0)
-        //    {
-        //        horizVel = -2;
-        //    }
-        //    else
-        //    if (horizVel == -2)
-        //    {
-        //        horizVel = -0;
-        //    }
-        //}
-        //else if ((Input.GetKeyDown(KeyCode.RightArrow)))
-        //{
-        //    if (horizVel == 0)
-        //    {
-        //        horizVel = 2;
-        //    }
-        //    else
-        //    if (horizVel == 2)
-        //    {
-        //        horizVel = -0;
-        //    }
-        //}
-
+        //Jump
         if (jumpInput == 0)
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -101,20 +78,12 @@ public class CharControl : MonoBehaviour
                 jumpInput = 1;
                 Jump();
             }
-        }
 
-        //Jump
-        foreach (Touch touch in Input.touches)
-        {
-            if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled)
+            if (CrossPlatformInputManager.GetButtonDown("Jump"))
             {
-                fingerCount++;
+                jumpInput = 1;
+                Jump();
             }
-        }
-        if (fingerCount > 0)
-        {
-            jumpInput = 1;
-            Jump();
         }
     }
 
