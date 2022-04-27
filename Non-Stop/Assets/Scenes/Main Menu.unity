@@ -3994,7 +3994,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Member: \nChen Xun Han\n- Coding\n- Level design\n- Game tester\n- Story
-    writter"
+    writer"
 --- !u!222 &1003792683
 CanvasRenderer:
   m_ObjectHideFlags: 0
