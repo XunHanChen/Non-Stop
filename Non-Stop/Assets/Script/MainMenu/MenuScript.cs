@@ -19,12 +19,15 @@ public class MenuScript : MonoBehaviour
     public Button backOptionsButton;
     public Button howToPlay;
     public Button backHowButton;
+    public Button CreditButton;
+    public Button backCredit;
 
     public GameObject StartPanel;
     public GameObject MenuButtonPanel;
     public GameObject PlayPanel;
     public GameObject OptionsPanel;
     public GameObject HowPanel;
+    public GameObject CreditPanel;
 
     void Start()
     {
@@ -85,6 +88,18 @@ public class MenuScript : MonoBehaviour
     {
         HowPanel.SetActive(false);
         OptionsPanel.SetActive(true);
+    }
+
+    public void CreditMenu()
+    {
+        MenuButtonPanel.SetActive(false);
+        CreditPanel.SetActive(true);
+    }
+
+    public void BackCredit()
+    {
+        CreditPanel.SetActive(false);
+        MenuButtonPanel.SetActive(true);
     }
 
     public void level1()
