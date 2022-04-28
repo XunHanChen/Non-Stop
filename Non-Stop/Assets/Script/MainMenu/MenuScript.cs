@@ -42,19 +42,19 @@ public class MenuScript : MonoBehaviour
         //Bgm.volume = BgmVolume;
         //PlayerPrefs.SetFloat("BgmVol", BgmVolume);
 
-        int fingerCount = 0;
-        foreach (Touch touch in Input.touches)
-        {
-            if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled)
-            {
-                fingerCount++;
-            }
-        }
-        if (fingerCount > 0)
-        {
-            StartPanel.SetActive(false);
-            MenuButtonPanel.SetActive(true);
-        }
+        //int fingerCount = 0;
+        //foreach (Touch touch in Input.touches)
+        //{
+        //    if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled)
+        //    {
+        //        fingerCount++;
+        //    }
+        //}
+        //if (fingerCount > 0)
+        //{
+        //    StartPanel.SetActive(false);
+        //    MenuButtonPanel.SetActive(true);
+        //}
     }
 
     public void PlayMenu()
